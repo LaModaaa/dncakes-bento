@@ -42,12 +42,12 @@
 
   function write(text) {
     var ls = lines(text), longest = Math.max.apply(null, ls.map(function (l) { return l.length; }).concat(4));
-    var fs = Math.min(64, 250 / (longest * 0.43), 190 / (ls.length * 1.02));
+    var fs = Math.min(50, 250 / (longest * 0.6), 170 / (ls.length * 1.15)); // Comfortaa шире рукописного
     words.textContent = "";
     ls.forEach(function (l, i) {
       var t = document.createElementNS(NS, "tspan");
       t.setAttribute("x", "0");
-      t.setAttribute("dy", i ? (fs * 1.02).toFixed(1) : (-(ls.length - 1) / 2 * fs * 1.02 + fs * 0.32).toFixed(1));
+      t.setAttribute("dy", i ? (fs * 1.15).toFixed(1) : (-(ls.length - 1) / 2 * fs * 1.15 + fs * 0.35).toFixed(1));
       t.textContent = l;
       words.appendChild(t);
     });

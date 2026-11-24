@@ -6,7 +6,7 @@
   --grey: #5f5457;
   --paper: #fff;
   --display: "Unbounded", system-ui, sans-serif;
-  --hand: "Marck Script", cursive;
+  --hand: "Comfortaa", system-ui, sans-serif;
   --sans: "Manrope", system-ui, sans-serif;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -47,7 +47,7 @@ h2 { font-size: clamp(30px, 4.4vw, 52px); }
 
 /* первый экран */
 .hero { position: relative; overflow: hidden; background: radial-gradient(120% 90% at 80% 40%, #ffd3de 0%, var(--pink) 55%, #f09db2 100%); display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(20px, 3vw, 48px); align-items: center; padding: 110px max(16px, calc((100% - 1180px) / 2)) 56px; min-height: 100svh; }
-.hero .script { font: clamp(24px, 2.6vw, 32px)/1 var(--hand); color: var(--piping); margin-bottom: 12px; }
+.hero .script { font: 700 clamp(15px, 1.4vw, 18px)/1.3 var(--sans); color: var(--piping); margin-bottom: 14px; }
 .hero h1 { font-size: clamp(36px, 4.7vw, 70px); font-weight: 900; }
 .hero h1 .l { display: block; }
 .hero h1 .l:nth-child(2) { color: var(--piping); white-space: nowrap; }
@@ -55,11 +55,11 @@ h2 { font-size: clamp(30px, 4.4vw, 52px); }
 .hero-sub { margin-top: 16px; max-width: 32em; font-size: 18px; }
 .builder { margin-top: 26px; max-width: 540px; display: grid; gap: 16px; padding: 22px; background: var(--paper); border-radius: 26px; box-shadow: 0 24px 60px rgba(150, 30, 60, .22); }
 .field { display: grid; gap: 6px; font-weight: 700; font-size: 14px; }
-.field input { height: 60px; padding: 0 18px; border: 2px solid #f1c3cf; border-radius: 16px; background: var(--blush); font: 30px var(--hand); color: var(--piping); outline: none; transition: border-color .2s; }
+.field input { height: 60px; padding: 0 18px; border: 2px solid #f1c3cf; border-radius: 16px; background: var(--blush); font: 700 22px var(--hand); color: var(--piping); outline: none; transition: border-color .2s; }
 .field input:focus { border-color: var(--piping); }
 .field input::placeholder { color: #d99aa6; }
 .ideas { display: flex; flex-wrap: wrap; gap: 6px; }
-.ideas button { padding: 6px 14px; border: 0; border-radius: 999px; background: var(--blush); font: 20px var(--hand); color: var(--piping); cursor: pointer; transition: background .2s, transform .2s; }
+.ideas button { padding: 6px 14px; border: 0; border-radius: 999px; background: var(--blush); font: 700 14px var(--hand); color: var(--piping); cursor: pointer; transition: background .2s, transform .2s; }
 .ideas button:hover { background: #fbd0db; transform: translateY(-2px); }
 .row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; }
 .opts { border: 0; display: flex; align-items: center; gap: 6px; }
@@ -90,13 +90,13 @@ h2 { font-size: clamp(30px, 4.4vw, 52px); }
 #cakeTop { fill: #fff; transition: fill .3s; }
 #rim circle, #base circle { stroke: rgba(0, 0, 0, .06); stroke-width: 1; transition: fill .3s; }
 #hearts { fill: var(--piping); }
-#words { font-family: var(--hand); text-anchor: middle; fill: var(--piping); }
+#words { font-family: var(--hand); font-weight: 700; text-anchor: middle; fill: var(--piping); }
 
 /* реальные надписи */
 .written { padding: clamp(70px, 9vw, 120px) 0 0; }
 .written-row { margin-top: 32px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
 .written figure img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 6px; }
-.written figcaption { margin-top: 10px; font: 26px/1.15 var(--hand); color: var(--piping); }
+.written figcaption { margin-top: 10px; font: 700 17px/1.3 var(--hand); color: var(--piping); }
 
 /* каталог: без карточек-коробок, только фото и текст */
 .catalog { padding-top: clamp(80px, 10vw, 130px); }
