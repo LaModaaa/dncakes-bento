@@ -69,7 +69,9 @@
     .from(".builder", { opacity: 0, y: 50, duration: 0.9, ease: "power3.out" }, 0.45)
     .fromTo(".preview-photo", { clipPath: "inset(100% 0% 0% 0% round 14px)" }, { clipPath: "inset(0% 0% 0% 0% round 14px)", duration: 1.2, ease: "expo.inOut" }, 0.1)
     .from(".preview-photo img", { scale: 1.25, duration: 1.6, ease: "expo.out" }, 0.3)
-    .from(".inscription", { opacity: 0, y: 20, duration: 0.8, ease: "back.out(2)" }, 1.1);
+    .from(".inscription", { opacity: 0, y: 20, duration: 0.8, ease: "back.out(2)" }, 1.1)
+    .from(".polaroid", { opacity: 0, y: 60, rotate: 20, duration: 1, ease: "back.out(1.6)" }, 1.2)
+    .from(".seal, .sprig", { scale: 0, duration: 0.8, stagger: 0.1, ease: "back.out(2)" }, 1.3);
 
   // 2. Меняющееся слово в заголовке, и в такт – пример надписи на торте (пока человек не начал писать сам)
   var words = $$(".swap b"), wi = 0;
@@ -87,16 +89,11 @@
   }
   G.delayedCall(4, nextWord);
 
-  // 3. Ленты бегут бесконечно и ускоряются от скорости прокрутки
-  var tapes = $$(".tape-in").map(function (el, k) {
-    return k ? G.fromTo(el, { xPercent: -50 }, { xPercent: 0, repeat: -1, duration: 30, ease: "none" })
-             : G.to(el, { xPercent: -50, repeat: -1, duration: 30, ease: "none" });
+  // 3. Манифест: слова «загораются» по мере прокрутки и гаснут, если крутить назад
+  G.fromTo(splitWords($(".manifest-text")), { opacity: 0.12 }, {
+    opacity: 1, stagger: 0.1, ease: "none",
+    scrollTrigger: { trigger: ".manifest", start: "top 75%", end: "bottom 55%", scrub: true }
   });
-  var boost = 0;
-  ScrollTrigger.create({ onUpdate: function (s) { boost = Math.min(Math.abs(s.getVelocity()) / 220, 9); } });
-  G.ticker.add(function () { boost *= 0.93; tapes.forEach(function (t) { t.timeScale(1 + boost); }); });
-  G.fromTo(".tape-rose", { rotate: -7 }, { rotate: -2, ease: "none", scrollTrigger: { trigger: ".tapes", start: "top bottom", end: "bottom top", scrub: true } });
-  G.fromTo(".tape-ink", { rotate: 6 }, { rotate: 2, ease: "none", scrollTrigger: { trigger: ".tapes", start: "top bottom", end: "bottom top", scrub: true } });
 
   // 4. Заголовки разделов выезжают по словам
   $$(".split").forEach(function (h) {

@@ -223,20 +223,12 @@ h2 { font-size: clamp(28px, 3.6vw, 46px); }
 .swap { position: relative; display: inline-block; color: var(--rose); vertical-align: top; }
 .swap b { display: inline-block; font-weight: 700; white-space: nowrap; }
 .swap b + b { position: absolute; left: 0; top: 0; opacity: 0; }
-.tapes { position: relative; height: 190px; overflow: hidden; margin: 10px 0 -30px; }
-.tape { position: absolute; left: -5%; width: 110%; padding: 16px 0; overflow: hidden; }
-.tape-rose { background: var(--rose); color: var(--paper); top: 36px; transform: rotate(-4deg); z-index: 2; }
-.tape-ink { background: var(--ink); color: var(--paper); top: 86px; transform: rotate(3deg); }
-.tape-in { display: flex; align-items: center; gap: 28px; width: max-content; }
-.tape span { font: 700 clamp(18px, 2.6vw, 30px) var(--display); white-space: nowrap; }
-.tape i { font-style: normal; font-size: 22px; color: var(--card); }
 .split .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .08em; }
 .split .w > span { display: inline-block; }
 .custom.pinned { overflow: hidden; } /* лента шире экрана – не даём ей растянуть страницу */
 .custom.pinned .strip { overflow: visible; width: max-content; scroll-snap-type: none; }
 .card { transform-style: preserve-3d; }
 .no-gsap .swap b + b { display: none; }
-@media (max-width: 520px) { .tapes { height: 150px; } .tape-rose { top: 26px; } .tape-ink { top: 68px; } }
 @media (prefers-reduced-motion: reduce) { .preloader { display: none; } }
 
 /* ---------- украшение первого экрана ---------- */
@@ -256,13 +248,6 @@ h2 { font-size: clamp(28px, 3.6vw, 46px); }
 .sprig { position: absolute; right: -30px; top: -36px; z-index: 3; width: 116px; transform: rotate(8deg); }
 .sprig path:first-child { fill: none; stroke: var(--rose); stroke-width: 2.2; stroke-linecap: round; }
 .sprig path + path { fill: #d9a3b0; opacity: .85; }
-/* бегущие ленты – тоньше и спокойнее */
-.tapes { height: 160px; }
-.tape { padding: 12px 0; }
-.tape-rose { top: 34px; }
-.tape-ink { top: 78px; }
-.tape span { font-size: clamp(16px, 2vw, 24px); font-weight: 600; }
-.tape i { font-size: 16px; color: #e9c9cf; }
 @media (max-width: 900px) {
   .seal { left: 10px; bottom: 64px; width: 104px; height: 104px; }
   .seal text { font-size: 15px; }
@@ -270,3 +255,21 @@ h2 { font-size: clamp(28px, 3.6vw, 46px); }
   .sprig { right: -6px; top: -24px; width: 80px; }
 }
 @media (prefers-reduced-motion: reduce) { .seal svg { animation: none; } }
+
+/* ---------- подложка-«скатерть» и полароид на первом экране ---------- */
+.hero { position: relative; isolation: isolate; }
+.hero::before { content: ""; position: absolute; z-index: -1; top: 70px; bottom: 30px; left: 52%; right: calc((100% - 100vw) / 2); border-radius: 260px 0 0 260px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='46' height='46'%3E%3Cpath d='M23 30s-7-4.4-7-9a3.6 3.6 0 0 1 7-1.6A3.6 3.6 0 0 1 30 21c0 4.6-7 9-7 9z' fill='%23b06a7b' fill-opacity='.13'/%3E%3C/svg%3E") 0 0 / 46px 46px, linear-gradient(160deg, #f6e4e2, var(--card) 60%); }
+.polaroid { position: absolute; right: -34px; bottom: 34px; z-index: 4; width: 150px; padding: 8px 8px 0; background: #fff; border-radius: 4px; transform: rotate(7deg); box-shadow: 0 18px 34px -16px rgba(44, 30, 22, .45); }
+.polaroid img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 2px; }
+.polaroid figcaption { margin: 0; padding: 8px 0 10px; text-align: center; font: 700 13px var(--hand); color: var(--rose); }
+@media (max-width: 900px) {
+  .hero::before { display: none; }
+  .polaroid { right: 6px; bottom: 54px; width: 104px; padding: 6px 6px 0; }
+  .polaroid figcaption { font-size: 11px; padding: 6px 0 8px; }
+}
+
+/* манифест, как в «Моей Анечке» */
+.manifest { padding: clamp(90px, 12vw, 150px) max(16px, calc((100% - 1000px) / 2)) 0; }
+.manifest-text { font: 700 clamp(24px, 3.6vw, 48px)/1.3 var(--display); letter-spacing: -.02em; color: var(--ink); }
+.manifest-text .w { display: inline-block; }

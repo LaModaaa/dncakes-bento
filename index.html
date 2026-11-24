@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Comfortaa:wght@700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=9">
+<link rel="stylesheet" href="style.css?v=11">
 </head>
 <body>
 
@@ -82,21 +82,18 @@
         <img src="img/blank-bento.webp" alt="Белый бенто-торт D&amp;N в коробке, вид сверху">
         <p class="inscription" id="inscription" aria-live="polite">Спасибо, мама</p>
       </div>
+      <figure class="polaroid" aria-hidden="true">
+        <img src="img/p76.webp" alt="">
+        <figcaption>так уже писали</figcaption>
+      </figure>
       <figcaption>Так надпись будет смотреться на торте. Кондитер выведет её кремом от руки.</figcaption>
     </figure>
   </section>
 
-  <!-- Ленты, как в «Моей Анечке» -->
-  <div class="tapes" aria-hidden="true">
-    <div class="tape tape-rose"><div class="tape-in">
-      <span>бенто-торты</span><i>♥</i><span>торты на заказ</span><i>♥</i><span>меренговые рулеты</span><i>♥</i><span>эклеры</span><i>♥</i><span>«Киевский»</span><i>♥</i>
-      <span>бенто-торты</span><i>♥</i><span>торты на заказ</span><i>♥</i><span>меренговые рулеты</span><i>♥</i><span>эклеры</span><i>♥</i><span>«Киевский»</span><i>♥</i>
-    </div></div>
-    <div class="tape tape-ink"><div class="tape-in">
-      <span>Ленина, 80</span><i>✦</i><span>до 21:00</span><i>✦</i><span>доставка</span><i>✦</i><span>своё тесто</span><i>✦</i>
-      <span>Ленина, 80</span><i>✦</i><span>до 21:00</span><i>✦</i><span>доставка</span><i>✦</i><span>своё тесто</span><i>✦</i>
-    </div></div>
-  </div>
+  <!-- Манифест: слова проявляются при прокрутке, как в «Моей Анечке». Текст – из описания группы D&N -->
+  <section class="manifest">
+    <p class="manifest-text">У нас вкусно пахнет свежей выпечкой. Это потому, что даже тесто мы делаем сами, по авторскому рецепту. Сделали – сразу в печь, а потом сразу к вам.</p>
+  </section>
 
   <!-- Реальные надписи -->
   <section class="written wrap">
@@ -225,6 +222,6 @@
 <script src="catalog.js?v=3"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="app.js?v=8"></script>
+<script src="app.js?v=10"></script>
 </body>
 </html>
