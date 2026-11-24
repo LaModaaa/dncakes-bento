@@ -8,7 +8,7 @@
   --grey: #74675d;
   --pink: var(--card);
   --blush: #f7f2ea;
-  --display: "Cormorant Garamond", Georgia, serif;
+  --display: "Unbounded", system-ui, sans-serif; /* как в «Моей Анечке» */
   --hand: "Comfortaa", system-ui, sans-serif;
   --sans: "Manrope", system-ui, sans-serif;
 }
@@ -23,8 +23,8 @@ button, input, textarea { font: inherit; color: inherit; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 :focus-visible { outline: 3px solid var(--piping); outline-offset: 3px; }
 .wrap { width: min(1180px, 100% - 32px); margin-inline: auto; }
-h1, h2 { font-variant-numeric: lining-nums; font-family: var(--display); font-weight: 500; line-height: 1.04; letter-spacing: -.01em; }
-h2 { font-size: clamp(36px, 4.6vw, 58px); }
+h1, h2 { font-family: var(--display); font-weight: 700; line-height: 1.08; letter-spacing: -.02em; }
+h2 { font-size: clamp(28px, 3.6vw, 46px); }
 
 /* кнопки: чёрная, как буквы логотипа; вторичная – обводка */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: .35em; min-height: 52px; padding: 0 26px; border: 1px solid var(--ink); border-radius: 10px; background: var(--ink); color: var(--paper); font-weight: 700; text-decoration: none; cursor: pointer; transition: background .2s, color .2s; }
@@ -50,7 +50,7 @@ h2 { font-size: clamp(36px, 4.6vw, 58px); }
 
 /* первый экран: две колонки 50/50, слева форма, справа фото с надписью */
 .hero { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(32px, 5vw, 72px); align-items: start; padding: 128px 0 72px; }
-.hero h1 { font-size: clamp(46px, 6vw, 84px); max-width: 9ch; }
+.hero h1 { font-size: clamp(36px, 4.4vw, 62px); max-width: 10ch; }
 .hero-sub { margin-top: 20px; max-width: 30em; font-size: 18px; color: var(--grey); }
 .builder { margin-top: 40px; display: grid; gap: 26px; padding: 28px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; }
 .field { display: grid; gap: 8px; font-size: 14px; font-weight: 500; color: var(--grey); }
@@ -65,7 +65,7 @@ h2 { font-size: clamp(36px, 4.6vw, 58px); }
 .seg label, .swatches label { position: relative; cursor: pointer; }
 .seg input, .swatches input { position: absolute; opacity: 0; }
 .seg span { display: grid; justify-items: center; padding: 10px 6px; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); font-size: 13px; color: var(--grey); transition: border-color .2s, background .2s; }
-.seg span b { font: 500 24px/1.1 var(--display); color: var(--ink); }
+.seg span b { font: 700 20px/1.2 var(--display); color: var(--ink); }
 .seg input:checked + span { border-color: var(--ink); background: #fff; }
 .swatches { grid-template-columns: repeat(3, auto); justify-content: start; gap: 8px 18px; }
 .swatches span { display: flex; align-items: center; gap: 8px; font-size: 14px; }
@@ -74,7 +74,7 @@ h2 { font-size: clamp(36px, 4.6vw, 58px); }
 .seg input:focus-visible + span, .swatches input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 3px; }
 .buyline { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 20px; border-top: 1px solid var(--line); }
 .buyline p { display: grid; }
-.buyline b { font: 500 32px/1 var(--display); font-variant-numeric: lining-nums; }
+.buyline b { font: 700 26px/1 var(--display); }
 .buyline span { font-size: 13px; color: var(--grey); }
 .preview { position: sticky; top: 96px; }
 .preview-photo { position: relative; aspect-ratio: 1; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); container-type: inline-size; }
