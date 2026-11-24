@@ -40,3 +40,8 @@ assert.strictEqual(C.hasUnpriced([ask[0]]), false);
 assert.strictEqual(C.total(ask), 1600);
 assert.ok(C.orderText(ask, { name: "А", phone: "+79990000000", how: "Самовывоз" }).includes("Свадебный торт – 1 шт – цена по запросу"));
 console.log("unpriced ok");
+// бенто со своей надписью не пропадает при сверке с каталогом
+const own = C.sync([{ name: "Бенто-торт S «Спасибо, мама»", price: 1600, unit: "шт", qty: 1, custom: true }], [{ name: "Бенто-торт S", price: 1600, unit: "шт" }]);
+assert.strictEqual(own.list.length, 1);
+assert.strictEqual(own.changed, false);
+console.log("custom ok");

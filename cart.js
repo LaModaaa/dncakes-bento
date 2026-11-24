@@ -31,6 +31,7 @@
     sync: function (list, catalog) {
       var removed = [], changed = false;
       var next = list.filter(function (it) {
+        if (it.custom) return true; // бенто со своей надписью – в каталоге его нет, сверять нечего
         var c = catalog.find(function (x) { return x.name === it.name; });
         if (!c) { removed.push(it.name); return false; }
         if (c.price !== it.price || c.unit !== it.unit) { it.price = c.price; it.unit = c.unit; changed = true; }
@@ -69,7 +70,7 @@
     add: function (p) {
       var it = find(p.name);
       if (it) it.qty++;
-      else list.push({ name: p.name, price: Number(p.price) || 0, unit: p.unit, qty: isWeight(p.unit) ? 3 : 1 });
+      else list.push({ name: p.name, price: Number(p.price) || 0, unit: p.unit, qty: isWeight(p.unit) ? 3 : 1, custom: !!p.custom });
       changed();
       bump();
       toast("Добавили: " + p.name);

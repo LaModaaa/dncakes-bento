@@ -3,168 +3,156 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>D&amp;N cakes – бенто и торты на заказ в Воронеже</title>
-<meta name="description" content="D&amp;N cakes – кондитерская-пекарня в Воронеже, ул. Ленина, 80. Бенто-торты от 1 600 ₽, торты на заказ, меренговые рулеты, эклеры. Заказ на сайте.">
+<title>D&amp;N cakes – бенто с вашей надписью, Воронеж</title>
+<meta name="description" content="Кондитерская D&amp;N cakes в Воронеже, ул. Ленина, 80. Напишите свою фразу на бенто-торте прямо на сайте: S – 1 600 ₽, M – 2 200 ₽, L – 2 800 ₽. Торты на заказ, рулеты, эклеры.">
 <link rel="icon" href="img/p149.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&family=Pacifico&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2">
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Marck+Script&family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
 <header class="header">
-  <a class="logo" href="#top"><img src="img/p149.webp" alt="D&amp;N cakes"></a>
+  <a class="logo" href="#top" aria-label="D&amp;N cakes – наверх"><img src="img/p149.webp" alt=""></a>
   <nav>
-    <a href="#bento">Бенто</a>
     <a href="#catalog">Каталог</a>
-    <a href="#gallery">Наши торты</a>
+    <a href="#order-cakes">Торты на заказ</a>
     <a href="#contacts">Контакты</a>
   </nav>
   <button class="cart-btn" type="button" aria-label="Корзина">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12z M6 6 5 3H2 M9 20a1 1 0 1 0 0 .1 M18 20a1 1 0 1 0 0 .1"/></svg>
-    <span class="cart-sum">0 ₽</span><b class="cart-count" hidden>0</b>
+    Корзина <span class="cart-sum">0 ₽</span><b class="cart-count" hidden>0</b>
   </button>
 </header>
 
 <main id="top">
 
-  <!-- Первый экран: бенто-сетка из плиток -->
-  <section class="hero wrap">
-    <div class="tile t-title pop">
-      <p class="script">кондитерская-пекарня · Воронеж</p>
-      <h1>Торт, который <mark>скажет</mark> за&nbsp;вас</h1>
-      <p class="sub">Бенто с вашей надписью, торты на заказ и меренговые рулеты. Тесто делаем сами – по авторскому рецепту.</p>
-      <div class="btns">
-        <a class="btn" href="#catalog">Выбрать торт</a>
-        <a class="btn ghost" href="#bento">Бенто от 1 600 ₽</a>
-      </div>
+  <!-- Первый экран: надпись на бенто -->
+  <section class="studio">
+    <div class="studio-text">
+      <h1>Напишите на&nbsp;торте то, что хотели сказать</h1>
+      <p class="studio-sub">Бенто-торт с вашей фразой из кондитерской D&amp;N на Ленина, 80. Наберите текст – он сразу появится на торте.</p>
+
+      <form class="builder" id="builder" autocomplete="off">
+        <label class="field">
+          <span>Что написать</span>
+          <input id="phrase" maxlength="40" placeholder="Год лапка об лапку" value="Год лапка об лапку">
+        </label>
+
+        <fieldset class="opts">
+          <legend>Размер</legend>
+          <label><input type="radio" name="size" value="S" checked><span><b>S</b>400–500 г, на 1–2</span></label>
+          <label><input type="radio" name="size" value="M"><span><b>M</b>700–800 г, на 3–4</span></label>
+          <label><input type="radio" name="size" value="L"><span><b>L</b>1 кг, на 5–6</span></label>
+        </fieldset>
+
+        <fieldset class="opts creams">
+          <legend>Крем</legend>
+          <label><input type="radio" name="cream" value="Белый" data-c="#ffffff" data-ink="#c8102e" checked><span><i style="background:#fff"></i>Белый</span></label>
+          <label><input type="radio" name="cream" value="Розовый" data-c="#f7b3c2" data-ink="#9b0d24"><span><i style="background:#f7b3c2"></i>Розовый</span></label>
+          <label><input type="radio" name="cream" value="Красный" data-c="#e2434e" data-ink="#ffffff"><span><i style="background:#e2434e"></i>Красный</span></label>
+        </fieldset>
+
+        <button class="btn" id="addBento" type="submit">Положить в корзину за <span id="bentoPrice">1 600 ₽</span></button>
+        <p class="hint">Начинку – банан-карамель, клубничный пломбир, сникерс – выберете при подтверждении заказа.</p>
+      </form>
     </div>
-    <div class="tile t-photo pop"><img src="img/p7.webp" alt="Ягодный торт D&amp;N cakes"></div>
-    <div class="tile t-price pop">
-      <span>бенто</span><b>от 1&nbsp;600&nbsp;₽</b><small>S · M · L</small>
-    </div>
-    <div class="tile t-photo2 pop"><img src="img/p30.webp" alt="Бенто-торт с надписью"></div>
-    <div class="tile t-badge pop">
-      <svg viewBox="0 0 200 200" aria-hidden="true"><defs><path id="circ" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs><text><textPath href="#circ">с душой · с вдохновением · с заботой · </textPath></text></svg>
-      <img src="img/p149.webp" alt="">
-    </div>
-    <div class="tile t-addr pop">
-      <b>ул. Ленина, 80</b><span>ост. «Педуниверситет» · ежедневно до 21:00</span>
+
+    <div class="studio-cake" aria-hidden="true">
+      <svg id="cake" viewBox="0 0 400 400">
+        <rect class="box" x="18" y="18" width="364" height="364" rx="28"/>
+        <g id="cakeBody">
+          <circle class="shadow" cx="206" cy="210" r="150"/>
+          <circle id="cakeTop" cx="200" cy="200" r="150"/>
+          <g id="rim"></g>
+          <g id="hearts">
+            <path d="M0 3C0-1 5-2 6 2 7-2 12-1 12 3 12 7 6 10 6 12 6 10 0 7 0 3Z" transform="translate(110 120) rotate(-20) scale(1.3)"/>
+            <path d="M0 3C0-1 5-2 6 2 7-2 12-1 12 3 12 7 6 10 6 12 6 10 0 7 0 3Z" transform="translate(275 105) rotate(18) scale(1.1)"/>
+            <path d="M0 3C0-1 5-2 6 2 7-2 12-1 12 3 12 7 6 10 6 12 6 10 0 7 0 3Z" transform="translate(300 255) rotate(-12) scale(1.4)"/>
+            <path d="M0 3C0-1 5-2 6 2 7-2 12-1 12 3 12 7 6 10 6 12 6 10 0 7 0 3Z" transform="translate(95 265) rotate(25) scale(1.1)"/>
+            <path d="M0 3C0-1 5-2 6 2 7-2 12-1 12 3 12 7 6 10 6 12 6 10 0 7 0 3Z" transform="translate(190 318) rotate(-5) scale(1)"/>
+          </g>
+          <text id="words" x="200" y="200"></text>
+        </g>
+      </svg>
+      <p class="cake-note">Так будет выглядеть надпись. Кондитер напишет её кремом от руки.</p>
     </div>
   </section>
 
-  <!-- Бегущая строка -->
-  <div class="marquee" aria-hidden="true"><div class="marquee-in">
-    <span>бенто-торты</span><i>✿</i><span>торты на заказ</span><i>✿</i><span>меренговые рулеты</span><i>✿</i><span>эклеры</span><i>✿</i><span>«Киевский» – легенда города</span><i>✿</i>
-    <span>бенто-торты</span><i>✿</i><span>торты на заказ</span><i>✿</i><span>меренговые рулеты</span><i>✿</i><span>эклеры</span><i>✿</i><span>«Киевский» – легенда города</span><i>✿</i>
-  </div></div>
-
-  <!-- Бенто: три размера -->
-  <section class="bento wrap" id="bento">
-    <div class="head">
-      <p class="script">маленький торт – большие слова</p>
-      <h2>Бенто в трёх размерах</h2>
-      <p class="lead">Напишем что угодно: «Год лапка об лапку», «Мой любимый душнила» или просто «Спасибо, мама». Начинки: банан-карамель, клубничный пломбир, сникерс и другие.</p>
+  <!-- Реальные надписи -->
+  <section class="written wrap">
+    <h2>Что уже писали на&nbsp;наших бенто</h2>
+    <div class="written-row">
+      <figure><img src="img/p30.webp" alt="Бенто «Год лапка об лапку»" loading="lazy"><figcaption>«Год лапка об лапку»</figcaption></figure>
+      <figure><img src="img/p76.webp" alt="Бенто «С годовщиной, мой любимый душнила»" loading="lazy"><figcaption>«С годовщиной, мой любимый душнила»</figcaption></figure>
+      <figure><img src="img/p48.webp" alt="Бенто «Без паники, это просто 1 сентября»" loading="lazy"><figcaption>«Без паники, это просто 1 сентября»</figcaption></figure>
+      <figure><img src="img/p58.webp" alt="Бенто «Юность»" loading="lazy"><figcaption>«Юность»</figcaption></figure>
     </div>
-    <div class="sizes">
-      <article class="size reveal" data-item="Бенто-торт S">
-        <div class="dot" style="--d:.62"></div>
-        <h3>S</h3><p>400–500 г · на 1–2</p><b class="size-price">1 600 ₽</b><div class="buy"></div>
-      </article>
-      <article class="size reveal" data-item="Бенто-торт M">
-        <div class="dot" style="--d:.8"></div>
-        <h3>M</h3><p>700–800 г · на 3–4</p><b class="size-price">2 200 ₽</b><div class="buy"></div>
-      </article>
-      <article class="size reveal" data-item="Бенто-торт L">
-        <div class="dot" style="--d:1"></div>
-        <h3>L</h3><p>1 кг · на 5–6</p><b class="size-price">2 800 ₽</b><div class="buy"></div>
-      </article>
-    </div>
-    <p class="promo reveal">Ко Дню матери (29 ноября) – промокод <b>МАМА26</b>: скидка 5% на заказ</p>
   </section>
 
   <!-- Каталог -->
   <section class="catalog wrap" id="catalog">
     <div class="cat-head">
-      <div>
-        <p class="script">каталог</p>
-        <h2>Торты и десерты</h2>
-      </div>
-      <label class="search"><input id="search" type="search" placeholder="Найти: бенто, рулет, эклер…" aria-label="Поиск по каталогу"></label>
+      <h2>Всё, что можно заказать</h2>
+      <label class="search"><span class="sr">Поиск по каталогу</span><input id="search" type="search" placeholder="Бенто, рулет, эклер"></label>
     </div>
     <div class="chips" id="chips"></div>
-    <p class="note">Торты на заказ считаем по весу и начинке – цену назовём, когда свяжемся с вами.</p>
-    <div class="grid" id="grid"><p class="empty">Загружаем ассортимент…</p></div>
+    <p class="note">У тортов на заказ цена зависит от веса и начинки – назовём её, когда перезвоним.</p>
+    <div class="grid" id="grid"><p class="empty">Загружаем каталог…</p></div>
   </section>
 
-  <!-- Галерея -->
-  <section class="gallery" id="gallery">
-    <div class="wrap head">
-      <p class="script">сделано в D&amp;N</p>
-      <h2>Торты, которые мы уже испекли</h2>
+  <!-- Торты на заказ -->
+  <section class="custom" id="order-cakes">
+    <div class="wrap custom-head">
+      <h2>Торты на заказ</h2>
+      <p>На день рождения, свадьбу или просто так. С живыми цветами, героями из мультфильмов и надписями. Пришлите идею – посчитаем вес и цену.</p>
+      <a class="btn ghost" href="https://vk.me/club90663604" target="_blank" rel="noopener">Обсудить торт во ВКонтакте</a>
     </div>
-    <div class="wrap masonry">
-      <img class="reveal" src="img/p17.webp" alt="Торт «Настеньке уже 20»" loading="lazy">
-      <img class="reveal" src="img/p56.webp" alt="Детский торт с фигуркой" loading="lazy">
-      <img class="reveal" src="img/p127.webp" alt="Двухъярусный свадебный торт" loading="lazy">
-      <img class="reveal" src="img/p86.webp" alt="Радужный торт" loading="lazy">
-      <img class="reveal" src="img/p133.webp" alt="Торт с бабочками" loading="lazy">
-      <img class="reveal" src="img/p31.webp" alt="Торт «Лучший дедушка»" loading="lazy">
-      <img class="reveal" src="img/p129.webp" alt="Торт с живыми цветами" loading="lazy">
-      <img class="reveal" src="img/p58.webp" alt="Бенто «Юность»" loading="lazy">
-      <img class="reveal" src="img/p52.webp" alt="Бенто-сердце" loading="lazy">
+    <div class="strip">
+      <img src="img/p127.webp" alt="Двухъярусный торт с цветами" loading="lazy">
+      <img src="img/p17.webp" alt="Чёрный торт «Настеньке уже 20»" loading="lazy">
+      <img src="img/p56.webp" alt="Детский торт с фигуркой" loading="lazy">
+      <img src="img/p133.webp" alt="Торт с бабочками" loading="lazy">
+      <img src="img/p7.webp" alt="Ягодный торт с подтёками" loading="lazy">
+      <img src="img/p129.webp" alt="Торт с живыми цветами" loading="lazy">
+      <img src="img/p86.webp" alt="Радужный торт" loading="lazy">
+      <img src="img/p31.webp" alt="Торт «Лучший дедушка»" loading="lazy">
     </div>
   </section>
 
-  <!-- Почему мы -->
-  <section class="why wrap">
-    <article class="card-why reveal" style="--bg:var(--pink)">
-      <b>01</b><h3>Своё тесто</h3><p>Делаем сами по авторскому рецепту. Сделали – сразу в печь, а потом сразу к вам.</p>
-    </article>
-    <article class="card-why reveal" style="--bg:var(--cream-2)">
-      <b>02</b><h3>«Киевский»</h3><p>Наш «Киевский» уже стал легендой города – попробуете раз и вернётесь снова.</p>
-    </article>
-    <article class="card-why reveal" style="--bg:var(--mint)">
-      <b>03</b><h3>Кондитерская и кафе</h3><p>Кондитерская, пекарня и кафе: свежие и сытные блюда в течение дня.</p>
-    </article>
-  </section>
-
-  <!-- Как заказать -->
+  <!-- Как заказать: это и правда последовательность -->
   <section class="steps wrap">
     <h2>Как заказать</h2>
     <ol>
-      <li class="reveal"><span>1</span><b>Выберите торт</b><p>Бенто, рулет или торт на заказ – в корзину.</p></li>
-      <li class="reveal"><span>2</span><b>Напишите пожелания</b><p>Надпись, начинку и к какому дню нужен торт.</p></li>
-      <li class="reveal"><span>3</span><b>Мы подтвердим</b><p>Перезвоним, уточним вес и цену.</p></li>
+      <li><b>Соберите корзину</b><span>Бенто с надписью, рулет или торт на заказ.</span></li>
+      <li><b>Оставьте телефон</b><span>И к какому дню нужен торт.</span></li>
+      <li><b>Мы перезвоним</b><span>Уточним начинку, вес и итоговую цену.</span></li>
+      <li><b>Заберите</b><span>На Ленина, 80 или с доставкой.</span></li>
     </ol>
   </section>
 
   <!-- Контакты -->
-  <section class="contacts wrap" id="contacts">
-    <div class="tile c-info">
-      <h2>Заходите в гости</h2>
-      <dl>
-        <div><dt>Адрес</dt><dd>Воронеж, ул. Ленина, 80 (остановка «Педагогический университет»)</dd></div>
-        <div><dt>Режим работы</dt><dd>Ежедневно до 21:00</dd></div>
-        <div><dt>Заказы</dt><dd><a href="tel:+79518798143">+7 (951) 879-81-43</a> · есть MAX</dd></div>
-      </dl>
-      <div class="btns">
-        <a class="btn" href="tel:+79518798143">Позвонить</a>
-        <a class="btn ghost" href="https://vk.me/club90663604" target="_blank" rel="noopener">Написать ВКонтакте</a>
-        <a class="btn ghost max-only" target="_blank" rel="noopener" hidden>Написать в MAX</a>
+  <section class="contacts" id="contacts">
+    <div class="wrap contacts-in">
+      <div>
+        <h2>Ленина, 80</h2>
+        <p class="addr-line">Воронеж, остановка «Педагогический университет». Кондитерская, пекарня и кафе, открыто до 21:00.</p>
+        <p class="phone"><a href="tel:+79518798143">+7 951 879-81-43</a></p>
+        <p class="addr-line">По этому номеру можно написать в MAX.</p>
+        <div class="btns">
+          <a class="btn" href="tel:+79518798143">Позвонить</a>
+          <a class="btn ghost" href="https://vk.me/club90663604" target="_blank" rel="noopener">Написать ВКонтакте</a>
+        </div>
       </div>
-    </div>
-    <div class="tile c-map">
       <iframe src="https://yandex.ru/map-widget/v1/?text=%D0%92%D0%BE%D1%80%D0%BE%D0%BD%D0%B5%D0%B6%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%9B%D0%B5%D0%BD%D0%B8%D0%BD%D0%B0%2080&z=16" title="D&amp;N cakes на карте" loading="lazy" allowfullscreen></iframe>
     </div>
   </section>
 </main>
 
 <footer class="footer wrap">
-  <span>© D&amp;N cakes – кондитерская-пекарня-кулинария, Воронеж</span>
+  <span>D&amp;N cakes, кондитерская-пекарня-кулинария в Воронеже</span>
   <a href="policy.html">Политика конфиденциальности</a>
-  <a href="https://vk.ru/club90663604" target="_blank" rel="noopener">ВКонтакте</a>
+  <a href="https://vk.ru/club90663604" target="_blank" rel="noopener">Группа ВКонтакте</a>
 </footer>
 
 <!-- Корзина -->
@@ -176,29 +164,30 @@
   </div>
   <div class="drawer-body">
     <ul class="cart-list"></ul>
-    <p class="cart-empty">Корзина пока пустая. Загляните в каталог!</p>
+    <p class="cart-empty">В корзине пусто. Начните с надписи на бенто.</p>
     <form class="order" novalidate hidden>
       <div class="total"><span>Итого</span><b class="total-sum">0 ₽</b></div>
-      <p class="total-note" hidden>Торты на заказ считаем по весу – точную сумму подтвердим.</p>
+      <p class="total-note" hidden>Торты на заказ считаем по весу – точную сумму назовём по телефону.</p>
       <label>Имя<input name="name" autocomplete="name" required></label>
       <label>Телефон<input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 ___ ___-__-__" required></label>
       <fieldset class="how">
-        <label><input type="radio" name="how" value="Самовывоз" checked> Самовывоз (ул. Ленина, 80)</label>
-        <label><input type="radio" name="how" value="Доставка"> Доставка</label>
+        <legend class="sr">Как получить</legend>
+        <label><input type="radio" name="how" value="Самовывоз" checked> Заберу с Ленина, 80</label>
+        <label><input type="radio" name="how" value="Доставка"> Нужна доставка</label>
       </fieldset>
       <label class="addr" hidden>Адрес доставки<input name="address" autocomplete="street-address"></label>
-      <label>Когда нужен торт<input name="when" placeholder="Например: 29 ноября к 15:00"></label>
-      <label>Надпись и пожелания<textarea name="comment" rows="2" placeholder="Начинка, надпись, цвет"></textarea></label>
+      <label>К какому дню<input name="when" placeholder="29 ноября, к 15:00"></label>
+      <label>Начинка и пожелания<textarea name="comment" rows="2" placeholder="Банан-карамель, без орехов"></textarea></label>
       <p class="form-error" role="alert"></p>
-      <button class="btn wide" type="submit">Оформить заказ</button>
-      <p class="consent">Нажимая «Оформить заказ», вы соглашаетесь на обработку персональных данных по <a href="policy.html" target="_blank">политике конфиденциальности</a>.</p>
+      <button class="btn wide" type="submit">Отправить заказ</button>
+      <p class="consent">Отправляя заказ, вы соглашаетесь на обработку персональных данных по <a href="policy.html" target="_blank">политике конфиденциальности</a>.</p>
     </form>
   </div>
 </aside>
 
 <dialog class="done">
-  <h2>Заказ почти оформлен!</h2>
-  <p>Мы скопировали текст заказа. Отправьте его нам <span class="via">ВКонтакте</span> – просто вставьте в сообщение – или позвоните.</p>
+  <h2>Заказ почти отправлен</h2>
+  <p>Текст заказа скопирован. Вставьте его в сообщение <span class="via">ВКонтакте</span> или позвоните нам.</p>
   <pre class="order-text"></pre>
   <div class="btns">
     <a class="btn send-vk" target="_blank" rel="noopener">Отправить ВКонтакте</a>
@@ -212,11 +201,10 @@
 
 <div class="toast" role="status" aria-live="polite"></div>
 
-<script src="config.js?v=2"></script>
-<script src="cart.js?v=2"></script>
-<script src="catalog.js?v=2"></script>
+<script src="config.js?v=3"></script>
+<script src="cart.js?v=3"></script>
+<script src="catalog.js?v=3"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="app.js?v=2"></script>
+<script src="app.js?v=3"></script>
 </body>
 </html>
