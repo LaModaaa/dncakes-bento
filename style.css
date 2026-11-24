@@ -185,8 +185,9 @@ h2 { font-size: clamp(28px, 3.6vw, 46px); }
   .hero-text { display: contents; } /* заголовок → фото → форма: надпись видно, пока печатаешь */
   .hero h1 { order: 1; max-width: none; }
   .hero-sub { order: 2; margin-top: -8px; }
-  .preview { order: 3; position: static; }
-  .builder { order: 4; margin-top: 0; }
+  .perks { order: 3; margin-top: 0; }
+  .preview { order: 4; position: relative; top: auto; margin-top: 16px; }
+  .builder { order: 5; margin-top: 0; }
   .written-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .custom-head, .contacts-in { grid-template-columns: 1fr; }
   .custom-head .btn { grid-column: 1; }
@@ -217,9 +218,6 @@ h2 { font-size: clamp(28px, 3.6vw, 46px); }
 @keyframes curtain { to { clip-path: inset(0 0 100% 0); visibility: hidden; } }
 @keyframes bounce-in { from { transform: scale(0) rotate(-30deg); } }
 @keyframes rise { from { opacity: 0; transform: translateY(30px); } }
-.cursor { position: fixed; left: 0; top: 0; width: 16px; height: 16px; margin: -8px 0 0 -8px; border-radius: 50%; background: var(--rose); pointer-events: none; z-index: 90; mix-blend-mode: multiply; opacity: .7; transition: width .25s, height .25s, margin .25s; display: none; }
-.cursor.big { width: 60px; height: 60px; margin: -30px 0 0 -30px; background: #e8c9cf; }
-@media (pointer: fine) { .cursor { display: block; } }
 .line { display: block; overflow: hidden; padding-bottom: .08em; }
 .line > span { display: inline-block; }
 .swap { position: relative; display: inline-block; color: var(--rose); vertical-align: top; }
@@ -237,7 +235,38 @@ h2 { font-size: clamp(28px, 3.6vw, 46px); }
 .custom.pinned { overflow: hidden; } /* лента шире экрана – не даём ей растянуть страницу */
 .custom.pinned .strip { overflow: visible; width: max-content; scroll-snap-type: none; }
 .card { transform-style: preserve-3d; }
-.no-gsap .cursor { display: none; }
 .no-gsap .swap b + b { display: none; }
 @media (max-width: 520px) { .tapes { height: 150px; } .tape-rose { top: 26px; } .tape-ink { top: 68px; } }
 @media (prefers-reduced-motion: reduce) { .preloader { display: none; } }
+
+/* ---------- украшение первого экрана ---------- */
+.perks { list-style: none; margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; color: var(--ink); }
+.perks li { display: flex; align-items: center; gap: 8px; }
+.perks svg { width: 18px; height: 18px; fill: none; stroke: var(--rose); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.preview { isolation: isolate; } /* sticky из правила выше держит печать и веточку */
+.preview::before { content: ""; position: absolute; inset: -10% -8% 4%; z-index: -1; background: radial-gradient(closest-side, rgba(214, 150, 168, .38), rgba(214, 150, 168, 0)); }
+/* фото в форме арки – как окно витрины кондитерской */
+.preview-photo { border: 10px solid #fff; border-radius: 50% 50% 18px 18px / 30% 30% 18px 18px; box-shadow: 0 0 0 1px var(--line), 0 34px 60px -34px rgba(44, 30, 22, .45); }
+.seal { position: absolute; left: -40px; bottom: 74px; z-index: 3; width: 136px; height: 136px; border-radius: 50%; background: var(--ink); color: var(--paper); display: grid; place-items: center; box-shadow: 0 12px 26px -10px rgba(44, 30, 22, .5); }
+.seal svg { position: absolute; inset: 0; width: 100%; height: 100%; animation: spin 22s linear infinite; }
+.seal text { font: 700 13.5px var(--sans); letter-spacing: .14em; fill: var(--paper); }
+.seal span { display: grid; justify-items: center; font-size: 12px; line-height: 1; color: #e9c9cf; }
+.seal b { margin-top: 4px; font: 700 19px var(--display); color: var(--paper); }
+@keyframes spin { to { transform: rotate(360deg); } }
+.sprig { position: absolute; right: -30px; top: -36px; z-index: 3; width: 116px; transform: rotate(8deg); }
+.sprig path:first-child { fill: none; stroke: var(--rose); stroke-width: 2.2; stroke-linecap: round; }
+.sprig path + path { fill: #d9a3b0; opacity: .85; }
+/* бегущие ленты – тоньше и спокойнее */
+.tapes { height: 160px; }
+.tape { padding: 12px 0; }
+.tape-rose { top: 34px; }
+.tape-ink { top: 78px; }
+.tape span { font-size: clamp(16px, 2vw, 24px); font-weight: 600; }
+.tape i { font-size: 16px; color: #e9c9cf; }
+@media (max-width: 900px) {
+  .seal { left: 10px; bottom: 64px; width: 104px; height: 104px; }
+  .seal text { font-size: 15px; }
+  .seal b { font-size: 15px; }
+  .sprig { right: -6px; top: -24px; width: 80px; }
+}
+@media (prefers-reduced-motion: reduce) { .seal svg { animation: none; } }

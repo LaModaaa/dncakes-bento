@@ -138,7 +138,7 @@
   G.fromTo(".contacts", { clipPath: "inset(8% 6% 0% 6% round 40px)" }, { clipPath: "inset(0% 0% 0% 0% round 0px)", ease: "none", scrollTrigger: { trigger: ".contacts", start: "top bottom", end: "top 30%", scrub: true } });
   G.fromTo(".map", { clipPath: "circle(0% at 50% 50%)" }, { clipPath: "circle(75% at 50% 50%)", duration: 1.4, ease: "expo.inOut", scrollTrigger: { trigger: ".contacts", start: "top 60%" } });
 
-  // 10. Магнитные кнопки и курсор-капля (только мышь)
+  // 10. Магнитные кнопки (только мышь)
   if (fine) {
     $$(".magnetic").forEach(function (b) {
       b.addEventListener("mousemove", function (e) {
@@ -147,9 +147,6 @@
       });
       b.addEventListener("mouseleave", function () { G.to(b, { x: 0, y: 0, duration: 0.7, ease: "elastic.out(1, .4)" }); });
     });
-    var cur = $(".cursor"), xTo = G.quickTo(cur, "x", { duration: 0.25 }), yTo = G.quickTo(cur, "y", { duration: 0.25 });
-    addEventListener("mousemove", function (e) { xTo(e.clientX); yTo(e.clientY); });
-    document.addEventListener("mouseover", function (e) { cur.classList.toggle("big", !!e.target.closest("a, button, label, .card, .strip img")); });
   }
 
   // Пересчитать точки срабатывания, когда догрузятся картинки и шрифты
