@@ -8,8 +8,8 @@
 <link rel="icon" href="img/p149.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Marck+Script&family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=3">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800;900&family=Marck+Script&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
@@ -27,55 +27,74 @@
 
 <main id="top">
 
-  <!-- Первый экран: надпись на бенто -->
-  <section class="studio">
-    <div class="studio-text">
-      <h1>Напишите на&nbsp;торте то, что хотели сказать</h1>
-      <p class="studio-sub">Бенто-торт с вашей фразой из кондитерской D&amp;N на Ленина, 80. Наберите текст – он сразу появится на торте.</p>
+  <!-- Первый экран: живая надпись на объёмном бенто -->
+  <section class="hero">
+    <div class="hero-text">
+      <p class="script">бенто-торты с надписью в Воронеже</p>
+      <h1><span class="l">Скажите</span><span class="l">«<span class="swap" id="swap">спасибо</span>»</span><span class="l">тортом</span></h1>
+      <p class="hero-sub">Маленький торт с вашими словами из кондитерской D&amp;N на Ленина, 80. Напишите фразу – и сразу увидите её на торте.</p>
 
       <form class="builder" id="builder" autocomplete="off">
         <label class="field">
-          <span>Что написать</span>
-          <input id="phrase" maxlength="40" placeholder="Год лапка об лапку" value="Год лапка об лапку">
+          <span>Ваша надпись</span>
+          <input id="phrase" maxlength="40" placeholder="Напишите свою фразу">
         </label>
-
-        <fieldset class="opts">
-          <legend>Размер</legend>
-          <label><input type="radio" name="size" value="S" checked><span><b>S</b>400–500 г, на 1–2</span></label>
-          <label><input type="radio" name="size" value="M"><span><b>M</b>700–800 г, на 3–4</span></label>
-          <label><input type="radio" name="size" value="L"><span><b>L</b>1 кг, на 5–6</span></label>
-        </fieldset>
-
-        <fieldset class="opts creams">
-          <legend>Крем</legend>
-          <label><input type="radio" name="cream" value="Белый" data-c="#ffffff" data-ink="#c8102e" checked><span><i style="background:#fff"></i>Белый</span></label>
-          <label><input type="radio" name="cream" value="Розовый" data-c="#f7b3c2" data-ink="#9b0d24"><span><i style="background:#f7b3c2"></i>Розовый</span></label>
-          <label><input type="radio" name="cream" value="Красный" data-c="#e2434e" data-ink="#ffffff"><span><i style="background:#e2434e"></i>Красный</span></label>
-        </fieldset>
-
-        <button class="btn" id="addBento" type="submit">Положить в корзину за <span id="bentoPrice">1 600 ₽</span></button>
-        <p class="hint">Начинку – банан-карамель, клубничный пломбир, сникерс – выберете при подтверждении заказа.</p>
+        <div class="ideas" aria-label="Готовые фразы">
+          <button type="button">Спасибо, мама</button>
+          <button type="button">С днём рождения</button>
+          <button type="button">Год лапка об лапку</button>
+          <button type="button">Ты лучший</button>
+        </div>
+        <div class="row">
+          <fieldset class="opts">
+            <legend>Размер</legend>
+            <label><input type="radio" name="size" value="S" checked><span title="400–500 г, на 1–2">S</span></label>
+            <label><input type="radio" name="size" value="M"><span title="700–800 г, на 3–4">M</span></label>
+            <label><input type="radio" name="size" value="L"><span title="1 кг, на 5–6">L</span></label>
+          </fieldset>
+          <fieldset class="opts creams">
+            <legend>Крем</legend>
+            <label><input type="radio" name="cream" value="Белый" data-c="#ffffff" data-side="#efe3df" data-ink="#c8102e" checked><span><i style="background:#fff"></i><em class="sr">Белый</em></span></label>
+            <label><input type="radio" name="cream" value="Розовый" data-c="#f9bccb" data-side="#ec9bb0" data-ink="#9b0d24"><span><i style="background:#f9bccb"></i><em class="sr">Розовый</em></span></label>
+            <label><input type="radio" name="cream" value="Красный" data-c="#e2434e" data-side="#c42f3b" data-ink="#ffffff"><span><i style="background:#e2434e"></i><em class="sr">Красный</em></span></label>
+          </fieldset>
+          <p class="size-info" id="sizeInfo">400–500 г, на 1–2 человек</p>
+        </div>
+        <button class="btn" id="addBento" type="submit">В корзину за <span id="bentoPrice">1 600 ₽</span></button>
       </form>
     </div>
 
-    <div class="studio-cake" aria-hidden="true">
-      <svg id="cake" viewBox="0 0 400 400">
-        <rect class="box" x="18" y="18" width="364" height="364" rx="28"/>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="blob"></div>
+      <img class="float f1" src="img/p30.webp" alt="" data-depth="26">
+      <img class="float f2" src="img/p76.webp" alt="" data-depth="-20">
+      <img class="float f3" src="img/p106.webp" alt="" data-depth="16">
+      <img class="sticker" src="img/p149.webp" alt="" data-depth="-34">
+      <svg id="cake" viewBox="0 0 460 400" data-depth="8">
+        <defs>
+          <linearGradient id="sideG" x1="0" x2="1">
+            <stop offset="0" id="sg1"/><stop offset=".45" id="sg2"/><stop offset="1" id="sg3"/>
+          </linearGradient>
+        </defs>
+        <ellipse class="plate-shadow" cx="236" cy="322" rx="196" ry="34"/>
+        <ellipse class="plate" cx="230" cy="300" rx="204" ry="50"/>
         <g id="cakeBody">
-          <circle class="shadow" cx="206" cy="210" r="150"/>
-          <circle id="cakeTop" cx="200" cy="200" r="150"/>
+          <path id="cakeSide" d="M60 190V270A170 52 0 0 0 400 270V190Z"/>
+          <g id="base"></g>
+          <ellipse id="cakeTop" cx="230" cy="190" rx="170" ry="74"/>
           <g id="rim"></g>
-          <g id="hearts">
-            <path d="M0 3C0-1 5-2 6 2 7-2 12-1 12 3 12 7 6 10 6 12 6 10 0 7 0 3Z" transform="translate(110 120) rotate(-20) scale(1.3)"/>
-            <path d="M0 3C0-1 5-2 6 2 7-2 12-1 12 3 12 7 6 10 6 12 6 10 0 7 0 3Z" transform="translate(275 105) rotate(18) scale(1.1)"/>
-            <path d="M0 3C0-1 5-2 6 2 7-2 12-1 12 3 12 7 6 10 6 12 6 10 0 7 0 3Z" transform="translate(300 255) rotate(-12) scale(1.4)"/>
-            <path d="M0 3C0-1 5-2 6 2 7-2 12-1 12 3 12 7 6 10 6 12 6 10 0 7 0 3Z" transform="translate(95 265) rotate(25) scale(1.1)"/>
-            <path d="M0 3C0-1 5-2 6 2 7-2 12-1 12 3 12 7 6 10 6 12 6 10 0 7 0 3Z" transform="translate(190 318) rotate(-5) scale(1)"/>
+          <g transform="translate(230 188) scale(1 .62)">
+            <g id="hearts">
+              <path d="M0 3C0-1 5-2 6 2 7-2 12-1 12 3 12 7 6 10 6 12 6 10 0 7 0 3Z" transform="translate(-120 -70) rotate(-20) scale(1.6)"/>
+              <path d="M0 3C0-1 5-2 6 2 7-2 12-1 12 3 12 7 6 10 6 12 6 10 0 7 0 3Z" transform="translate(98 -88) rotate(18) scale(1.4)"/>
+              <path d="M0 3C0-1 5-2 6 2 7-2 12-1 12 3 12 7 6 10 6 12 6 10 0 7 0 3Z" transform="translate(112 52) rotate(-12) scale(1.7)"/>
+              <path d="M0 3C0-1 5-2 6 2 7-2 12-1 12 3 12 7 6 10 6 12 6 10 0 7 0 3Z" transform="translate(-132 40) rotate(25) scale(1.3)"/>
+              <path d="M0 3C0-1 5-2 6 2 7-2 12-1 12 3 12 7 6 10 6 12 6 10 0 7 0 3Z" transform="translate(-8 92) rotate(-5) scale(1.2)"/>
+            </g>
+            <text id="words" x="0" y="0"></text>
           </g>
-          <text id="words" x="200" y="200"></text>
         </g>
       </svg>
-      <p class="cake-note">Так будет выглядеть надпись. Кондитер напишет её кремом от руки.</p>
     </div>
   </section>
 
@@ -205,6 +224,6 @@
 <script src="cart.js?v=3"></script>
 <script src="catalog.js?v=3"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="app.js?v=3"></script>
+<script src="app.js?v=4"></script>
 </body>
 </html>
