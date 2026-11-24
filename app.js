@@ -8,7 +8,8 @@
   var form = $("#builder"), phrase = $("#phrase"), ins = $("#inscription");
   var PRICE = { S: 1600, M: 2200, L: 2800 }; // из поста D&N; если каталог загрузился – берём оттуда
   var INFO = { S: "на 1–2 человек", M: "на 3–4 человек", L: "на 5–6 человек" };
-  var SAMPLES = ["Спасибо, мама", "Люблю тебя", "С днюхой", "Ты лучший"], si = 0;
+  // пример на торте идёт в паре со словом в заголовке: словами / шутками / признаниями / «люблю»
+  var SAMPLES = ["Спасибо, мама", "Мой любимый душнила", "Люблю тебя", "Люблю"], si = 0;
 
   /* ---------- конструктор надписи ---------- */
   function pick(name) { return form.querySelector("input[name=" + name + "]:checked"); }
@@ -79,7 +80,7 @@
     G.to(cur, { yPercent: -110, duration: 0.55, ease: "power3.in" });
     G.fromTo(words[wi], { yPercent: 110 }, { yPercent: 0, duration: 0.7, ease: "back.out(1.8)", delay: 0.4 });
     if (!phrase.value.trim()) {
-      si = (si + 1) % SAMPLES.length;
+      si = wi; // тот же номер, что у слова в заголовке
       G.to(ins, { opacity: 0, y: -8, duration: 0.3, onComplete: function () { draw(); G.fromTo(ins, { y: 8 }, { opacity: 0.55, y: 0, duration: 0.5, clearProps: "opacity" }); } });
     }
     G.delayedCall(2.6, nextWord);
